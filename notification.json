@@ -7,11 +7,11 @@
       "name": "KNXD daemon",
       "version": "0.6.1",
       "repository": "WOOWTECH/Woow_ha_knxd_add_on",
-      "source_sha": "9a449b818c4db9636799581c3426c9c4bc963ec1",
+      "source_sha": "acc46ad53f1e44f03b9a53cb8af84cd5ec480924",
       "source_path": "knxd",
       "config_file": "config.yaml",
       "config_sha256": "sha256:c1b6536fd6fa71cc351335a0c0ef55f787a74448f3e698daf92d7ca690f25cc1",
-      "archive_sha256": "sha256:433eb1b326874c74b960c131947cbfb211bf13b4cf03ded5f71fd19ae753fd0d",
+      "archive_sha256": "sha256:450c69dff4bd29557f7a98e51e7554d7e91a9e77b6b7ba097473d725c1599d2c",
       "context_fingerprint": "sha256:3cc49f57990d374281875d3b0a209f8e4c89d2ed4fa1d64199b64e0988e8af8e",
       "material_fingerprint": "sha256:e01f1410f051a7ac67beb418365bcfb970b6b83c3c00c3586265f8a85d5e42a0",
       "architectures": [
@@ -114,7 +114,7 @@
       },
       "delivery": "published-image",
       "validation": "manifest+architecture-images+configured-CI",
-      "publisher_run_id": "37410293299",
+      "publisher_run_id": "38209713435",
       "channel": "stable"
     }
   }
