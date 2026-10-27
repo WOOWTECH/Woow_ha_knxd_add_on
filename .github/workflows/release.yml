@@ -63,6 +63,25 @@ jobs:
           fi
           docker build "${args[@]}" -t "local/${ADDON}:${VERSION}" "${ADDON}"
 
+  # Upgrade comparison (pipeline #89): a PR that bumps the add-on version is
+  # compared with the latest formal Release; a breaking config.yaml change not
+  # declared in knxd/upgrade-notes.yaml blocks it. Configuration only: the
+  # image Home Assistant installs is the third-party
+  # ghcr.io/da-anda/hass-io-addons-{arch}-addon-knxd, not the image built
+  # above, so there is no vulnerability comparison (owner decision
+  # 2026-10-27); the report states that reason. No needs: on the build, so a
+  # PR passes it in seconds. On push the job passes at once, so this
+  # workflow's non-PR run (registry required_workflows) still succeeds.
+  # Reported as "Upgrade comparison / compare".
+  upgrade-comparison:
+    name: Upgrade comparison
+    permissions:
+      contents: read
+      actions: read
+    uses: WOOWTECH/Woow_HA_App_Store/.github/workflows/woow-addon-upgrade-check.yml@main
+    with:
+      skip_vulnerability_scan: the shipped image is the third-party ghcr.io/da-anda/hass-io-addons-{arch}-addon-knxd, not built here; category 4 for it is out of scope (owner decision 2026-10-27)
+
   release:
     name: Release
     needs: validate
