@@ -78,8 +78,9 @@ jobs:
     permissions:
       contents: read
       actions: read
-    uses: WOOWTECH/Woow_HA_App_Store/.github/workflows/woow-addon-upgrade-check.yml@main
+    uses: WOOWTECH/Woow_HA_App_Store/.github/workflows/woow-addon-upgrade-check.yml@feat/89-122
     with:
+      tooling_ref: feat/89-122
       skip_vulnerability_scan: the shipped image is the third-party ghcr.io/da-anda/hass-io-addons-{arch}-addon-knxd, not built here; category 4 for it is out of scope (owner decision 2026-10-27)
 
   release:
