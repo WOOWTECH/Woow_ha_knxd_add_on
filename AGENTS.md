@@ -17,8 +17,11 @@ release mechanism is described in the Woow_HA_App_Store README (section
 3. **Breaking changes must be declared in `upgrade-notes.yaml`** next to the
    addon's `config.yaml` (here `knxd/upgrade-notes.yaml`). Create the file
    only when the upgrade comparison asks for it; copy `change` and `key` from
-   its report and write the migration path. The image Home Assistant installs
-   is the third-party da-anda image, not one built here, so the vulnerability
-   comparison does not run for it yet (pipeline #90). The release puts these
-   entries on the GitHub Release. Rules, change names and the file format: the
+   its report and write the migration path. The release puts these entries on
+   the GitHub Release. The image Home Assistant installs is the third-party
+   da-anda image, not one built here, so the vulnerability comparison scans
+   its amd64 tag (`config.yaml` `image`) at the latest stable Release's
+   version and at the PR's. Bump only to a version the upstream has already
+   published: otherwise the check fails, saying the upstream has not published
+   that tag yet. Rules, change names and the file format: the
    Woow_HA_App_Store README, section "升版比對與 `upgrade-notes.yaml`".
