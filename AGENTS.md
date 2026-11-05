@@ -21,7 +21,11 @@ release mechanism is described in the Woow_HA_App_Store README (section
    the GitHub Release. The image Home Assistant installs is the third-party
    da-anda image, not one built here, so the vulnerability comparison scans
    its amd64 tag (`config.yaml` `image`) at the latest stable Release's
-   version and at the PR's. Bump only to a version the upstream has already
-   published: otherwise the check fails, saying the upstream has not published
-   that tag yet. Rules, change names and the file format: the
+   version and at the PR's, and the upgrade test starts those same two
+   published images one after the other on the same data (the image built in
+   this repository's PR is not used). The upgrade test sets `interface: dummy`
+   through `knxd/upgrade-check/options.yaml`, since a CI runner has no KNX
+   adapter. Bump only to a version the upstream has already published:
+   otherwise both checks fail, saying that tag of the image is not published
+   yet. Rules, change names and the file format: the
    Woow_HA_App_Store README, section "升版比對與 `upgrade-notes.yaml`".

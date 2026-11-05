@@ -1,0 +1,9 @@
+# Options for the Store's upgrade test only (pipeline release-gating/154; file
+# format: Woow_HA_App_Store README, "測試用的 options", #157). They are laid
+# over config.yaml's defaults in a throwaway CI container and never ship.
+# A GitHub runner has no KNX adapter. With the default interface (usb) knxd
+# 0.6.1 logs "setting up USB failed" and keeps running with its bus link down
+# (it still listens on tcp 6720, the watchdog), so the test would rest on knxd
+# tolerating a missing adapter. The dummy driver needs no device: the
+# interface comes up as on a real host, without SYS_MODULE or SYS_RAWIO.
+interface: dummy
